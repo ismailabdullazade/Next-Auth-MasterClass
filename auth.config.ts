@@ -15,6 +15,7 @@ export default {
           const { email, password } = validatedFields.data;
 
           const user = await getUserByEmail(email);
+          
           if(!user || !user.password){
             return null;
           }
