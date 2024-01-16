@@ -53,7 +53,7 @@ export const LoginForm = () => {
       .then(data=>{
         setError(data?.error);
         // TODO: Add when we will have 2Factor
-        // setSuccess(data?.success);
+        setSuccess(data?.success);
       })
     })
   }
