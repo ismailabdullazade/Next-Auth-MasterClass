@@ -21,7 +21,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
-import { login } from "@/actions/login";
+import { reset } from "@/actions/reset";
 
 export const ResetForm = () => {
 
@@ -44,14 +44,14 @@ export const ResetForm = () => {
 
     console.log(values);
 
-    // startTransition(()=>{
-    //   login(values)
-    //   .then(data=>{
-    //     setError(data?.error);
-    //     // TODO: Add when we will have 2Factor
-    //     setSuccess(data?.success);
-    //   })
-    // })
+    startTransition(()=>{
+      reset(values)
+      .then(data=>{
+        setError(data?.error);
+        // TODO: Add when we will have 2Factor
+        setSuccess(data?.success);
+      })
+    })
   }
   return (
     <CardWrapper 
