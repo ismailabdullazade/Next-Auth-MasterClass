@@ -7,6 +7,7 @@ import { RegisterSchema } from "@/schemas";
 import * as z from "zod";
 import { getUserByEmail } from "@/data/user";
 import { generateVerifiactionToken } from "@/lib/token";
+import { sendVerificationEmail } from "@/lib/mail";
 
 
 export const register = async (values:z.infer<typeof RegisterSchema>) => {
@@ -21,7 +22,7 @@ export const register = async (values:z.infer<typeof RegisterSchema>) => {
     const hashedPassword = await bcrypt.hash(password,10);
 
     const existingUser = await getUserByEmail(email);
-    
+    // if I registered with OAuth(github) then I want to register with credentials but with the same email, it will give me an error, which I did not handled.
     if (existingUser) {
         return { error: "Email already in use"}
     }
@@ -35,7 +36,8 @@ export const register = async (values:z.infer<typeof RegisterSchema>) => {
     });
 
     const verificationToken = await generateVerifiactionToken(email);
-    //TODO: Send verification token code email;
+    //Send verification token code email;
+    await sendVerificationEmail(verificationToken.email,verificationToken.token);
 
     return {success:"Confirmation email sent!"}
 }
