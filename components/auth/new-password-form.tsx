@@ -21,7 +21,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
-import { reset } from "@/actions/reset";
+import { newPassword } from "@/actions/new-password";
 import { useSearchParams } from "next/navigation";
 
 export const NewPasswordForm = () => {
@@ -47,7 +47,7 @@ export const NewPasswordForm = () => {
     console.log(values);
 
     startTransition(()=>{
-      reset(values)
+      newPassword(values, token)
       .then(data=>{
         setError(data?.error);
         // TODO: Add when we will have 2Factor
