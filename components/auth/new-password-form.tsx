@@ -26,7 +26,7 @@ import { useSearchParams } from "next/navigation";
 
 export const NewPasswordForm = () => {
   const searchParams = useSearchParams();
-  const token = searchParams("token");
+  const token = searchParams.get("token");
 
 
   const [isPending,startTransition] = useTransition();
