@@ -1,7 +1,7 @@
 import { db } from "@/lib/db"
 
 
-export const getTwoFactorTokenByToke = async (token:string) => {
+export const getTwoFactorTokenByToken = async (token:string) => {
     try {
         const twoFactorToken = await db.twoFactorToken.findUnique({
             where:{token}
