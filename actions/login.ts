@@ -5,7 +5,7 @@ import { getTwoFactorTokenByEmail } from "@/data/two-factor-token";
 import { getUserByEmail } from "@/data/user";
 import { db } from "@/lib/db";
 import { sendTwoFactorTokenEmail, sendVerificationEmail } from "@/lib/mail";
-import { generateTwoFactorToken, generateVerifiactionToken } from "@/lib/token";
+import { generateTwoFactorToken, generateVerificationToken } from "@/lib/token";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { LoginSchema } from "@/schemas";
 import { AuthError } from "next-auth";
@@ -28,7 +28,7 @@ export const login = async (values:z.infer<typeof LoginSchema>) => {
     }
 
     if(!existingUser.emailVerified){
-        const verificationToken = await generateVerifiactionToken(existingUser.email);
+        const verificationToken = await generateVerificationToken(existingUser.email);
 
         await sendVerificationEmail(verificationToken.email,verificationToken.token);
 
