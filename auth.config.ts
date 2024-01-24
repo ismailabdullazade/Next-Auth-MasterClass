@@ -32,6 +32,11 @@ export default {
 
           const passwordMatch = await bcrypt.compare(password,user.password);
 
+          // checking-password-match-1
+          if (!passwordMatch) {
+            return { error: "Incorrect password!" };
+          }
+
           if(passwordMatch) return user;
         }
         return null;

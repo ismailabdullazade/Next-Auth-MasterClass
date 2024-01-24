@@ -1,4 +1,6 @@
 "use server";
+
+import bcrypt from "bcryptjs";
 import { signIn } from "@/auth";
 import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
 import { getTwoFactorTokenByEmail } from "@/data/two-factor-token";
@@ -25,6 +27,13 @@ export const login = async (values:z.infer<typeof LoginSchema>) => {
 
     if(!existingUser || !existingUser.email || !existingUser.password) {
         return { error: "Email does not exist!"}
+    }
+
+    const passwordMatch = await bcrypt.compare(password,existingUser.password);
+
+    // checking-password-match-2
+    if(!passwordMatch) {
+        return {error:"Incorrect password!"}
     }
 
     if(!existingUser.emailVerified){
