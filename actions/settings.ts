@@ -10,17 +10,24 @@ export const settings = async (values:z.infer<typeof SettingsSchema>) => {
     const user = await currentUser();
 
     if(!user) {
-        return { error:"Unathorized"}
+        return { error:"Unathorized current user"}
     }
 
     const dbUser = await  getUserById(user.id);
 
     if(!dbUser) {
-        return { error:"Unathorized"}
+        return { error:"Unathorized db user"}
     }
 
+    if (user.isOAuth) {
+        values.email = undefined;
+        values.password = undefined;
+        values.newPassword = undefined;
+        values.isTwoFactorEnabled = undefined;
+      }
+
     await db.user.update({
-        where:{id:user.id},
+        where:{id:dbUser.id},
         data:{...values}
     })
 
