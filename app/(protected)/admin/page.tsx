@@ -41,13 +41,13 @@ const AdminPage = () => {
     };
 
   return (
-    <Card className="w-[600px]">
+    <Card className="w-[336px] md:w-[600px]">
       <CardHeader>
         <p className="text-2xl font-semibold text-center">
             🔑 Admin
         </p>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-4 md:p-6 px-3">
         <Rolegate allowedRole={UserRole.ADMIN}>
             <FormSuccess 
               message="You are allowed to see this content!"

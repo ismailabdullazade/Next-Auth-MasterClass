@@ -75,13 +75,13 @@ const SettingsPage = () => {
   }
 
   return ( 
-    <Card className="w-[600px]">
-      <CardHeader>
-        <p className="text-2xl font-semibold text-center">
+    <Card className="w-[336px] md:w-[600px]">
+      <CardHeader className="pb-0 pt-[5px]">
+        <p className="text-2xl font-semibold text-center pb-0 pt-0">
           ⚙️ Settings
         </p>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pb-2">
         <Form {...form}>
           <form 
             className="space-y-6" 
@@ -219,6 +219,7 @@ const SettingsPage = () => {
             <FormError message={error} />
             <FormSuccess message={success} />
             <Button
+            className="py-1"
               disabled={isPending}
               type="submit"
             >
