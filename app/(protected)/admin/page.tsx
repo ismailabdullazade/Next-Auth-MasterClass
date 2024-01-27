@@ -55,11 +55,11 @@ const AdminPage = () => {
         </Rolegate>
         <div className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-md">
           <p className="text-sm font-medium">Admin-only API Route</p>
-          <Button onClick={onApiRouteClick}>Click to test</Button>
+          <Button className="p-[12px]" onClick={onApiRouteClick}>Click to test</Button>
         </div>
         <div className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-md">
           <p className="text-sm font-medium">Admin-only Server Action</p>
-          <Button onClick={onServerActionClick}>Click to test</Button>
+          <Button className="p-[12px]" onClick={onServerActionClick}>Click to test</Button>
         </div>
       </CardContent>
     </Card>

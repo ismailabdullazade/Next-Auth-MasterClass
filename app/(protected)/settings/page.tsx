@@ -76,12 +76,12 @@ const SettingsPage = () => {
 
   return ( 
     <Card className="w-[336px] md:w-[600px]">
-      <CardHeader className="pb-0 pt-[5px]">
-        <p className="text-2xl font-semibold text-center pb-0 pt-0">
+      <CardHeader>
+        <p className="text-2xl font-semibold text-center">
           ⚙️ Settings
         </p>
       </CardHeader>
-      <CardContent className="pb-2">
+      <CardContent>
         <Form {...form}>
           <form 
             className="space-y-6" 
@@ -92,7 +92,7 @@ const SettingsPage = () => {
                 control={form.control}
                 name="name"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="space-y-1">
                     <FormLabel>Name</FormLabel>
                     <FormControl>
                       <Input
@@ -111,7 +111,7 @@ const SettingsPage = () => {
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="space-y-3">
                         <FormLabel>Email</FormLabel>
                         <FormControl>
                           <Input
@@ -129,7 +129,7 @@ const SettingsPage = () => {
                     control={form.control}
                     name="password"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="space-y-3">
                         <FormLabel>Password</FormLabel>
                         <FormControl>
                           <Input
@@ -147,7 +147,7 @@ const SettingsPage = () => {
                     control={form.control}
                     name="newPassword"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="space-y-3">
                         <FormLabel>New Password</FormLabel>
                         <FormControl>
                           <Input
@@ -167,7 +167,7 @@ const SettingsPage = () => {
                 control={form.control}
                 name="role"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="space-y-3">
                     <FormLabel>Role</FormLabel>
                     <Select
                       disabled={isPending}
@@ -219,7 +219,6 @@ const SettingsPage = () => {
             <FormError message={error} />
             <FormSuccess message={success} />
             <Button
-            className="py-1"
               disabled={isPending}
               type="submit"
             >
@@ -229,6 +228,7 @@ const SettingsPage = () => {
         </Form>
       </CardContent>
     </Card>
+
    );
 }
  
