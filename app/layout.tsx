@@ -6,6 +6,8 @@ import { auth } from '@/auth'
 import { Toaster } from '@/components/ui/sonner'
 import { cn } from '@/lib/utils'
 
+// added for check
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
