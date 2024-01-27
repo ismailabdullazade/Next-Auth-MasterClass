@@ -13,4 +13,4 @@ const ProtectedLayout = ({children}:ProtectedLayoutProps) => {
   )
 }
 
-export default ProtectedLayout
+export default ProtectedLayout;
