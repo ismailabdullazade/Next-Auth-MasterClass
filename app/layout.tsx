@@ -4,6 +4,7 @@ import './globals.css'
 import { SessionProvider } from 'next-auth/react'
 import { auth } from '@/auth'
 import { Toaster } from '@/components/ui/sonner'
+import { cn } from '@/lib/utils'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +23,8 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={cn("p-[20px] bg-gradient-to-r from-cyan-500 to-blue-500",
+        inter.className)}>
           <Toaster/>
           {children}
         </body>
