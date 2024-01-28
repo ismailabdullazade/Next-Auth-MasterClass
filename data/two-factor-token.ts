@@ -1,10 +1,15 @@
 import { db } from "@/lib/db"
 
+// type TwoFactorTokenWhereUniqueInput = {
+//     id: string | TwoFactorTokenEmailTokenCompoundUniqueInput;
+//     email_token: string | TwoFactorTokenEmailTokenCompoundUniqueInput;
+//     // other properties...
+//   };
 
 export const getTwoFactorTokenByToken = async (token:string) => {
     try {
         const twoFactorToken = await db.twoFactorToken.findUnique({
-            where:{token}
+            where:{token} as any
         });
 
         return twoFactorToken;
