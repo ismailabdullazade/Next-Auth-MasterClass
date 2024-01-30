@@ -34,7 +34,6 @@ export const ResetForm = () => {
     resolver:zodResolver(ResetSchema),
     defaultValues:{
       email:"",
-      password:"",
     }
   });
 
